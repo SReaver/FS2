@@ -17,12 +17,20 @@ namespace FS1
             FileInfo file = new FileInfo(url);
             FileStream fs = file.Create();
             fs.Close();
-           
+            ShowWindowsDirectoryInfo();
         }
 
         static void NewFile()
         {
 
+        }
+
+        static void ShowWindowsDirectoryInfo()
+        {
+            DirectoryInfo dir = new DirectoryInfo(@"c:\windows");
+            Console.WriteLine("****Инфо о файле****");
+            Console.WriteLine("Полный путь: {0}\nНазвание папки: {1}\nРодительский каталог: {2}\nВремя создания: {3}\nАтрибуты: {4}\nКорневой каталог: {5}", dir.FullName, dir.Name, dir.Parent, dir.CreationTime, dir.Attributes, dir.Root);
+            Console.ReadLine();
         }
 
 
